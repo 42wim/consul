@@ -303,6 +303,9 @@ func DefaultConfig() *Config {
 	// Disable shutdown on removal
 	conf.RaftConfig.ShutdownOnRemove = false
 
+	// increase RTT to 2 seconds (slow vmware)
+	conf.SerfLANConfig.MemberlistConfig.ProbeTimeout = 2 * time.Second
+
 	return conf
 }
 
